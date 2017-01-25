@@ -2,7 +2,6 @@ package com.jspark.android.widgets;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,13 +13,7 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
     Button btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix, btnSeven, btnEight, btnNine, btnZero;
     Button btnP, btnM, btnMu, btnD, btnR, btnC;
 
-    int state = 0;
-    double result = 0;
 
-    String num1 = "", num2 = "";
-
-    String arr[] = {"0", };
-    String arr2[] = {"0", };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,72 +106,33 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.btnPlus :
-                num1 = txt.getText().toString();
                 txtPre.setText(txtPre.getText() + "+");
                 txt.setText("");
-                state = 1;
                 break;
             case R.id.btnMinus :
-                num1 = txt.getText().toString();
                 txtPre.setText(txtPre.getText() + "-");
                 txt.setText("");
-                state = 2;
                 break;
             case R.id.btnMulti :
-                num1 = txt.getText().toString();
                 txtPre.setText(txtPre.getText() + "*");
                 txt.setText("");
-                state = 3;
                 break;
             case R.id.btnDiv :
-                num1 = txt.getText().toString();
                 txtPre.setText(txtPre.getText() + "/");
                 txt.setText("");
-                state = 4;
                 break;
 
             case R.id.btnCancle :
-                num1 = "";
-                num2 = "";
                 txtPre.setText("");
                 txt.setText("");
                 break;
             case R.id.btnRun :
                 runBtn(txtPre.getText().toString());
-
-//                if(state==1) {
-//                    num2 = txt.getText().toString();
-//                    result = Double.parseDouble(num1) + Double.parseDouble(num2);
-//                    txt.setText(String.valueOf(result));
-//                } else if(state==2) {
-//                    num2 = txt.getText().toString();
-//                    result = Double.parseDouble(num1) - Double.parseDouble(num2);
-//                    txt.setText(String.valueOf(result));
-//                } else if(state==3) {
-//                    num2 = txt.getText().toString();
-//                    result = Double.parseDouble(num1) * Double.parseDouble(num2);
-//                    txt.setText(String.valueOf(result));
-//                } else if(state==4) {
-//                    num2 = txt.getText().toString();
-//                    if(Integer.parseInt(num2)==0) {
-//                        txt.setText("Error");
-//                    } else {
-//                        result = Double.parseDouble(num1) / Double.parseDouble(num2);
-//                        txt.setText(String.valueOf(result));
-//                    }
-//                }
                 break;
         }
-        Log.d("num1", num1);
-        Log.d("num2", num2);
-        Log.d("state", String.valueOf(state));
-        for(int i=0;i<arr.length;i++) Log.d("arr"+i, String.valueOf(arr[i]));
-        for(int i=0;i<arr2.length;i++) Log.d("arr2"+i, String.valueOf(arr2[i]));
     }
 
     public void runBtn(String str) {
 
-        arr = str.split("[^0-9]");
-        arr2 = str.split("[0-9]");
     }
 }
