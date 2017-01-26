@@ -10,6 +10,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button btn;
     Button btn2;
+    Button btn3;
+    Button btn4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btn2 = (Button)findViewById(R.id.btnCal);
         btn2.setOnClickListener(this);
+
+        btn3 = (Button)findViewById(R.id.btnWidget);
+        btn3.setOnClickListener(this);
+
+        btn4 = (Button)findViewById(R.id.btnUnit);
+        btn4.setOnClickListener(this);
     }
 
 
@@ -35,6 +43,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 i = new Intent(MainActivity.this, CalculatorActivity.class);
                 startActivity(i);
                 break; //
+            case R.id.btnWidget :
+                i = new Intent(MainActivity.this, WidgetActivity.class);
+                startActivity(i);
+                break;
+            case R.id.btnUnit :
+                i = new Intent(MainActivity.this, UnitActivity.class);
+                startActivity(i);
+                break;
         }
     }
 }

@@ -34,7 +34,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/linearlo"
-        android:columnCount="4">
+        android:columnCount="4"
+        android:useDefaultMargins="false">
         <Button
             android:id="@+id/btn1"
             android:layout_width="wrap_content"

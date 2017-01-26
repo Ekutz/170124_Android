@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class CalculatorActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView txt, txtPre;
@@ -127,12 +129,85 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
                 txt.setText("");
                 break;
             case R.id.btnRun :
-                runBtn(txtPre.getText().toString());
+                txt.setText(runBtn(txtPre.getText().toString()));
                 break;
         }
     }
 
-    public void runBtn(String str) {
+    public String runBtn(String str) {
+        String result = "";
 
+        String splited[] = str.split("(?<=[*/+-])|(?=[*/+-])");
+
+        ArrayList<String> list = new ArrayList<String>();
+
+        for(String item : splited) {
+            list.add(item);
+        }
+
+        int index=0;
+        for(index=0;index<list.size();index++) {
+            String getItem = list.get(index);
+
+            double a = 0, b=0, calResult=0;
+            boolean check = true;
+
+            if(getItem.equals("*")) {
+                a = Double.parseDouble(list.get(index-1));
+                b = Double.parseDouble(list.get(index+1));
+                calResult = a * b;
+                check=true;
+            } else if(getItem.equals("/")) {
+                a = Double.parseDouble(list.get(index-1));
+                b = Double.parseDouble(list.get(index+1));
+                calResult = a / b;
+                check=true;
+            } else {
+                check = false;
+            }
+
+            if(check) {
+                list.set(index, ""+calResult);
+                list.remove(index+1);
+                list.remove(index-1);
+                index--;
+            } else {
+
+            }
+        }
+
+        index = 0;
+        for(index=0;index<list.size();index++) {
+            String getItem = list.get(index);
+
+            double a = 0, b=0, calResult=0;
+            boolean check = true;
+
+            if(getItem.equals("+")) {
+                a = Double.parseDouble(list.get(index-1));
+                b = Double.parseDouble(list.get(index+1));
+                calResult = a + b;
+                check=true;
+            } else if(getItem.equals("-")) {
+                a = Double.parseDouble(list.get(index-1));
+                b = Double.parseDouble(list.get(index+1));
+                calResult = a - b;
+                check=true;
+            } else {
+                check = false;
+            }
+
+            if(check) {
+                list.set(index, ""+calResult);
+                list.remove(index+1);
+                list.remove(index-1);
+                index--;
+            } else {
+
+            }
+        }
+        result = list.get(0);
+        return result;
     }
+
 }

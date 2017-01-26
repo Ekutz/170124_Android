@@ -16,5 +16,18 @@
         android:id="@+id/btnCal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="calculator"/>
+    <Button
+        android:id="@+id/btnWidget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="constraint"/>
+    <Button
+        android:id="@+id/btnUnit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Unit"/>
 </LinearLayout>

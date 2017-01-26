@@ -11,28 +11,168 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.jspark.android.widgets.WidgetActivity">
 
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-        <ImageView
+        <TextView
+            android:text="ToggleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/ic_launcher"
-            android:id="@+id/imageView"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/tgTv"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.0"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="16dp" />
+        <ToggleButton
+            android:text="ToggleButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tgBtn"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tgTv"
+            app:layout_constraintLeft_toLeftOf="@+id/tgTv" />
+
+        <TextView
+            android:text="CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkTv"
+            app:layout_constraintTop_toBottomOf="@+id/tgBtn"
+            app:layout_constraintLeft_toLeftOf="@+id/tgBtn"
+            android:layout_marginTop="16dp" />
+
+        <CheckBox
+            android:text="Apple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cBox1"
+            app:layout_constraintLeft_toLeftOf="@+id/checkTv"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/checkTv" />
+
+        <CheckBox
+            android:text="Banana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cBox2"
             android:layout_marginStart="16dp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/cBox1"
             android:layout_marginLeft="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="16dp"
-            app:layout_constraintVertical_bias="0.33"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginRight="16dp"
-            app:layout_constraintHorizontal_bias="0.33" />
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintTop_toTopOf="@+id/cBox1"
+            app:layout_constraintBottom_toBottomOf="@+id/cBox1" />
+
+        <CheckBox
+            android:text="Cherry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cBox3"
+            app:layout_constraintLeft_toRightOf="@+id/cBox2"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            app:layout_constraintTop_toTopOf="@+id/cBox2"
+            app:layout_constraintBottom_toBottomOf="@+id/cBox2" />
+
+        <TextView
+            android:text="Radio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rdTv"
+            app:layout_constraintLeft_toLeftOf="@+id/cBox1"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/cBox1" />
+
+        <RadioGroup
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="@+id/rdTv"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/rdTv"
+            android:orientation="horizontal"
+            android:id="@+id/rdGroup">
+
+            <RadioButton
+                android:text="Anaconda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rdBtn1"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:text="Bear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rdBtn2"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:text="Cat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rdBtn3"
+                android:layout_weight="1" />
+        </RadioGroup>
+
+        <TextView
+            android:text="Spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spTv"
+            app:layout_constraintLeft_toLeftOf="@+id/rdGroup"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/rdGroup" />
+
+        <Spinner
+            android:layout_width="312dp"
+            android:layout_height="48dp"
+            android:id="@+id/sp"
+            app:layout_constraintLeft_toLeftOf="@+id/spTv"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/spTv" />
+
+        <TextView
+            android:text="SeekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/sBarTv"
+            app:layout_constraintLeft_toLeftOf="@+id/sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/sp" />
+
+        <SeekBar
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekBar"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/sBarTv"
+            app:layout_constraintLeft_toLeftOf="@+id/sBarTv" />
+
+        <SeekBar
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="312dp"
+            android:layout_height="wrap_content"
+            android:max="10"
+            android:progress="0"
+            android:id="@+id/seekBar2"
+            app:layout_constraintLeft_toLeftOf="@+id/seekBar"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+        <TextView
+            android:text="0%"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/seekTv"
+            app:layout_constraintRight_toRightOf="@+id/seekBar2"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
+
+
 
     </android.support.constraint.ConstraintLayout>
 </RelativeLayout>
